@@ -1,0 +1,12 @@
+READ ME
+
+"srk_ps3_1.jl" contains the main script for all parts
+-For part a, get the original stoichiometric matrix by printing stoichiometric_matrix_original
+-For part b, get the balanced E matrix by printing "E_balanced". Get the atom matrix from "atom_balanced" 
+and stoichiometric matrix from "stoichiometric_matrix_balanced"
+
+"bounds.jl" calculates the upper bounds for part c
+
+"flux.jl" is the function used in part c 
+
+the pdf file contains all the formal write-up and explanations of the problem set 

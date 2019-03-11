@@ -5,7 +5,9 @@ READ ME
 -For part b, get the balanced E matrix by printing "E_balanced". Get the atom matrix from "atom_balanced" 
 and stoichiometric matrix from "stoichiometric_matrix_balanced"
 
-"bounds.jl" calculates the upper bounds for part c
+"upper_bound_math.jl" calculates the upper bounds for part c
+
+"convert.jl" allows for a subfunction to convert from uM to ummol/gDW to be used
 
 "flux.jl" is the function used in part c 
 

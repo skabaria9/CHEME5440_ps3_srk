@@ -63,6 +63,27 @@ stoichiometric_matrix_balanced = [ #v1 v2 v3 v4 v5,1 v5,-1 b1 b2 b3 b4 b5 b6 b7 
 0  0  0  0  2   -2    0 0  0  0 0  0   0 0  0  0  0  0  0  0  0  0  0  0  0 -1 1 #O2
 ];
 
+stoichiometric_matrix_balanced2 = [ #v1 v2 v3 v4 v5,1 v5,-1 b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 b11 b12 b13 b14 b17 b18 b19 b20 b21
+-1 0  0  0  0    0    0 1  0  0 0  0   0 0  0  0  0  0  0  0  0  0  0  0  0  0 0; #Aspartate
+1  -1 0  0  0    0    0 0  0  0 0  0   0 0  0  0  0  0  0  0  0  0  0  0  0  0 0; #Arginosuccitate
+0  1  0  0  0    0    0 0 -1  0 0  0   0 0  0  0  0  0  0  0  0  0  0  0  0  0 0; #Fumarate
+0  1  -1 0  1    -1   0 0  0  0 0  0   0 0  0  0  0  0  0  0  0  0  0  0  0  0 0; #Arginine
+0  0  1  0  0    0    0 0  0 -1 0  0   0 0  0  0  0  0  0  0  0  0  0  0  0  0 0; #Urea
+0  0  1  -1 0    0    0 0  0  0 0  0   0 0  0  0  0  0  0  0  0  0  0  0  0  0 0; #Orinithine
+0  0  0  -1 0    0    1 0  0  0 0  0   0 0  0  0  0  0  0  0  0  0  0  0  0  0 0; #Carbamoyl Phosphate
+-1 0  0  1  -1   1    0 0  0  0 0  0   0 0  0  0  0  0  0  0  0  0  0  0  0  0 0; #Citruline
+-1 0  0  0  0    0    0 0  0  0 1  0   0 0  0  0  0  0  0  0  0  0  0  0  0  0 0; #ATP
+1  0  0  0  0    0    0 0  0  0 0 -1   0 0  0  0  0  0  0  0  0  0  0  0  0  0 0; #AMP
+1  0  0  0  0    0    0 0  0  0 0  0  -1 0  0  0  0  0  0  0  0  0  0  0  0  0 0; #PPi
+0  0  -1 0  -2   2    0 0  0  0 0  0   0 1  0  0  0  1  0  0  0  0  0  0 -1  0 0; #H20
+0  0  0  1  0    0    0 0  0  0 0  0   0 0 -1  0  0  0  0  0  0  0  0  0  0  0 0; #phosphate
+0  0  0  0  1.5 -1.5  0 0  0  0 0  0   0 0  0  0  0  0 -1  0  1  0  0  0  0  0 0; #NADPH
+0  0  0  0 -1.5  1.5  0 0  0  0 0  0   0 0  0  0  1  0  0  0  0  0  0 -1  0  0 0; #NADP+
+0  0  0  0 -1    1    0 0  0  0 0  0   0 0  0  1  0  0  0  0  0  0 -1  0  0  0 0; #Nitric oxide
+0  0  0  0  1.5 -1.5  0 0  0  0 0  0   0 0  0  0  0  0  0 -1  0  1  0  0  0  0 0; #H+
+0  0  0  0  2   -2    0 0  0  0 0  0   0 0  0  0  0  0  0  0  0  0  0  0  0 -1 1 #O2
+];
+
 #Define atom matrix for the original S matrix stoichiometric_matrix_original
 atom_balanced = [
 #Columns: Asp Arginosucc Fum Argini Ur  Orin CP Cit ATP AMP PPi H20 Phosphate NADPH NADP+ Nitric_Oxide H+ O2
@@ -75,7 +96,7 @@ atom_balanced = [
 ];
 
 E_balanced = atom_balanced*stoichiometric_matrix_balanced;
-#If printed in the command line, E_balances show that v1-v5,-1 are all balanced
+#If printed in the command line, E_balance shows that v1-v5,-1 are all balanced
 
 #---------------------------------------------------------------------------
 #Part C

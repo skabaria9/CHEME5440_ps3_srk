@@ -42,6 +42,7 @@ atom_original = [
 E_original = atom_original * stoichiometric_matrix_original
 #Print the E_orginal in the command line and notice there are many non-zero values
 
+#For Approach 1 (irreversible b8, b10-21, metabolites for v5 each have in coming flux and outgoing flux.
 stoichiometric_matrix_balanced = [ #v1 v2 v3 v4 v5,1 v5,-1 b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 b11 b12 b13 b14 b17 b18 b19 b20 b21
 -1 0  0  0  0    0    0 1  0  0 0  0   0 0  0  0  0  0  0  0  0  0  0  0  0  0 0; #Aspartate
 1  -1 0  0  0    0    0 0  0  0 0  0   0 0  0  0  0  0  0  0  0  0  0  0  0  0 0; #Arginosuccitate
@@ -63,25 +64,26 @@ stoichiometric_matrix_balanced = [ #v1 v2 v3 v4 v5,1 v5,-1 b1 b2 b3 b4 b5 b6 b7 
 0  0  0  0  2   -2    0 0  0  0 0  0   0 0  0  0  0  0  0  0  0  0  0  0  0 -1 1 #O2
 ];
 
-stoichiometric_matrix_balanced2 = [ #v1 v2 v3 v4 v5,1 v5,-1 b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 b11 b12 b13 b14 b17 b18 b19 b20 b21
--1 0  0  0  0    0    0 1  0  0 0  0   0 0  0  0  0  0  0  0  0  0  0  0  0  0 0; #Aspartate
-1  -1 0  0  0    0    0 0  0  0 0  0   0 0  0  0  0  0  0  0  0  0  0  0  0  0 0; #Arginosuccitate
-0  1  0  0  0    0    0 0 -1  0 0  0   0 0  0  0  0  0  0  0  0  0  0  0  0  0 0; #Fumarate
-0  1  -1 0  1    -1   0 0  0  0 0  0   0 0  0  0  0  0  0  0  0  0  0  0  0  0 0; #Arginine
-0  0  1  0  0    0    0 0  0 -1 0  0   0 0  0  0  0  0  0  0  0  0  0  0  0  0 0; #Urea
-0  0  1  -1 0    0    0 0  0  0 0  0   0 0  0  0  0  0  0  0  0  0  0  0  0  0 0; #Orinithine
-0  0  0  -1 0    0    1 0  0  0 0  0   0 0  0  0  0  0  0  0  0  0  0  0  0  0 0; #Carbamoyl Phosphate
--1 0  0  1  -1   1    0 0  0  0 0  0   0 0  0  0  0  0  0  0  0  0  0  0  0  0 0; #Citruline
--1 0  0  0  0    0    0 0  0  0 1  0   0 0  0  0  0  0  0  0  0  0  0  0  0  0 0; #ATP
-1  0  0  0  0    0    0 0  0  0 0 -1   0 0  0  0  0  0  0  0  0  0  0  0  0  0 0; #AMP
-1  0  0  0  0    0    0 0  0  0 0  0  -1 0  0  0  0  0  0  0  0  0  0  0  0  0 0; #PPi
-0  0  -1 0  -2   2    0 0  0  0 0  0   0 1  0  0  0  1  0  0  0  0  0  0 -1  0 0; #H20
-0  0  0  1  0    0    0 0  0  0 0  0   0 0 -1  0  0  0  0  0  0  0  0  0  0  0 0; #phosphate
-0  0  0  0  1.5 -1.5  0 0  0  0 0  0   0 0  0  0  0  0 -1  0  1  0  0  0  0  0 0; #NADPH
-0  0  0  0 -1.5  1.5  0 0  0  0 0  0   0 0  0  0  1  0  0  0  0  0  0 -1  0  0 0; #NADP+
-0  0  0  0 -1    1    0 0  0  0 0  0   0 0  0  1  0  0  0  0  0  0 -1  0  0  0 0; #Nitric oxide
-0  0  0  0  1.5 -1.5  0 0  0  0 0  0   0 0  0  0  0  0  0 -1  0  1  0  0  0  0 0; #H+
-0  0  0  0  2   -2    0 0  0  0 0  0   0 0  0  0  0  0  0  0  0  0  0  0  0 -1 1 #O2
+#For Approach 2 (reversible b8, b10-b14)
+stoichiometric_matrix_balanced2 = [ #v1 v2 v3 v4 v5,1 v5,-1 b1 b2 b3 b4 b5 b6 b7 b8 b9 b10 b11 b12 b13 b14
+-1 0  0  0  0    0    0 1  0  0 0  0   0 0  0  0  0  0  0  0; #Aspartate
+1  -1 0  0  0    0    0 0  0  0 0  0   0 0  0  0  0  0  0  0; #Arginosuccitate
+0  1  0  0  0    0    0 0 -1  0 0  0   0 0  0  0  0  0  0  0; #Fumarate
+0  1  -1 0  1    -1   0 0  0  0 0  0   0 0  0  0  0  0  0  0; #Arginine
+0  0  1  0  0    0    0 0  0 -1 0  0   0 0  0  0  0  0  0  0; #Urea
+0  0  1  -1 0    0    0 0  0  0 0  0   0 0  0  0  0  0  0  0; #Orinithine
+0  0  0  -1 0    0    1 0  0  0 0  0   0 0  0  0  0  0  0  0; #Carbamoyl Phosphate
+-1 0  0  1  -1   1    0 0  0  0 0  0   0 0  0  0  0  0  0  0; #Citruline
+-1 0  0  0  0    0    0 0  0  0 1  0   0 0  0  0  0  0  0  0; #ATP
+1  0  0  0  0    0    0 0  0  0 0 -1   0 0  0  0  0  0  0  0; #AMP
+1  0  0  0  0    0    0 0  0  0 0  0  -1 0  0  0  0  0  0  0; #PPi
+0  0  -1 0  -2   2    0 0  0  0 0  0   0 1  0  0  0  0  0  0; #H20
+0  0  0  1  0    0    0 0  0  0 0  0   0 0 -1  0  0  0  0  0; #phosphate
+0  0  0  0  1.5 -1.5  0 0  0  0 0  0   0 0  0  0  0 -1  0  0; #NADPH
+0  0  0  0 -1.5  1.5  0 0  0  0 0  0   0 0  0  0  1  0  0  0; #NADP+
+0  0  0  0 -1    1    0 0  0  0 0  0   0 0  0  1  0  0  0  0; #Nitric oxide
+0  0  0  0  1.5 -1.5  0 0  0  0 0  0   0 0  0  0  0  0  -1 0; #H+
+0  0  0  0  2   -2    0 0  0  0 0  0   0 0  0  0  0  0  0  -1 #O2
 ];
 
 #Define atom matrix for the original S matrix stoichiometric_matrix_original
@@ -95,11 +97,16 @@ atom_balanced = [
 0 0  0 0  0 0  0 0  0  0  0 0 0  0  0 0 0 0; #S
 ];
 
+#For Approach 1
 E_balanced = atom_balanced*stoichiometric_matrix_balanced;
 #If printed in the command line, E_balance shows that v1-v5,-1 are all balanced
 
+#For Approach2
+E_balanced2 = atom_balanced*stoichiometric_matrix_balanced2;
+#If printed in the command line, E_balance shows that v1-v5,-1 are all balanced
+
 #---------------------------------------------------------------------------
-#Part C
+#Part C -- APPROACH 1
 #-------------------------------------------------------------------------
 
 #Define Inputs to the flux array
@@ -233,3 +240,94 @@ calculated_flux_array= flux_answer[2] #umol/gDW per second
 calculated_flux_array_converted = calculated_flux_array/1000*3600 #mmol/gDW per hour
 dual_value_array = flux_answer[3]
 uptake_array = flux_answer[4]
+
+#---------------------------------------------------------------------------
+#Part C -- APPROACH 2
+#-------------------------------------------------------------------------
+
+#Lower Bound
+flux_lower_bound2 = [
+v_lower_bound_irrev; #v1
+v_lower_bound_irrev; #v2
+v_lower_bound_irrev; #v3
+v_lower_bound_irrev; #v4
+v_lower_bound_irrev; #v5,1
+v_lower_bound_irrev; #v5,-1
+b_lower_bound_irrev; #b1
+b_lower_bound_irrev; #b2
+b_lower_bound_irrev; #b3
+b_lower_bound_irrev; #b4
+b_lower_bound_irrev; #b5
+b_lower_bound_irrev; #b6
+b_lower_bound_irrev; #b7
+b_lower_bound_rev; #b8
+b_lower_bound_irrev; #b9
+b_lower_bound_rev; #b10
+b_lower_bound_rev; #b11
+b_lower_bound_rev; #b12
+b_lower_bound_rev; #b13
+b_lower_bound_rev; #b14
+];
+
+flux_upper_bound2 = [
+v1_upper_bound; #v1
+v2_upper_bound; #v2
+v3_upper_bound; #v3
+v4_upper_bound; #v4
+v5pos1_upper_bound; #v5,1
+v5neg1_upper_bound; #v5,-1
+b_upper_bound; #b1
+b_upper_bound; #b2
+b_upper_bound; #b3
+b_upper_bound; #b4
+b_upper_bound; #b5
+b_upper_bound; #b6
+b_upper_bound; #b7
+b_upper_bound; #b8
+b_upper_bound; #b9
+b_upper_bound; #b10
+b_upper_bound; #b11
+b_upper_bound; #b12
+b_upper_bound; #b13
+b_upper_bound; #b14
+];
+
+#Objective Coefficient Array
+objective_coefficient_array2 =[
+0.0; #v1
+0.0; #v2
+0.0; #v3
+0.0; #v4
+0.0; #v5,1
+0.0; #v5,-1
+0.0; #b1
+0.0; #b2
+0.0; #b3
+-1.0; #b4
+0.0; #b5
+0.0; #b6
+0.0; #b7
+0.0; #b8
+0.0; #b9
+0.0; #b10
+0.0; #b11
+0.0; #b12
+0.0; #b13
+0.0; #b14
+];
+
+#Compile Bounds
+default_bounds_array2 = [flux_lower_bound2 flux_upper_bound2];
+
+#Species bound array
+species_bounds_array2 = species_bounds_array;
+
+#Run the flux function
+flux_answer2 = calculate_optimal_flux_distribution(stoichiometric_matrix_balanced2,default_bounds_array2,species_bounds_array2,objective_coefficient_array2)
+#Pull out the answers
+objective_value2= flux_answer2[1] #umol/gDW per second
+objective_value_converted2 = objective_value2/1000*3600 #mmol/gDW per hour
+calculated_flux_array2= flux_answer2[2] #umol/gDW per second
+calculated_flux_array_converted2 = calculated_flux_array2/1000*3600 #mmol/gDW per hour
+dual_value_array = flux_answer[3]
+uptake_array2 = flux_answer2[4]

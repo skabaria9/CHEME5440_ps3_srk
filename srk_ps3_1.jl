@@ -241,6 +241,8 @@ calculated_flux_array_converted = calculated_flux_array/1000*3600 #mmol/gDW per 
 dual_value_array = flux_answer[3]
 uptake_array = flux_answer[4]
 
+check1 = stoichiometric_matrix_balanced*calculated_flux_array;
+
 #---------------------------------------------------------------------------
 #Part C -- APPROACH 2
 #-------------------------------------------------------------------------
@@ -331,3 +333,5 @@ calculated_flux_array2= flux_answer2[2] #umol/gDW per second
 calculated_flux_array_converted2 = calculated_flux_array2/1000*3600 #mmol/gDW per hour
 dual_value_array = flux_answer[3]
 uptake_array2 = flux_answer2[4]
+
+check2 = stoichiometric_matrix_balanced2*calculated_flux_array2;
